@@ -1,0 +1,26 @@
+.header {
+    width: 100%;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: rgb(16, 24, 40);
+    font-family: Inter;
+    border-bottom: 1px solid rgb(242, 244, 247);
+    background: rgb(247, 247, 247);
+}
+
+.header a {
+ margin-top: 28px;
+ margin-bottom: 29px;
+}
+
+.logo {
+    position: absolute;
+    left: 64px;
+}
+

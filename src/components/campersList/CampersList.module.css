@@ -1,0 +1,25 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.loadMore {
+width: 145px;
+height: 56px;
+margin-left: auto;
+margin-right: auto;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 10;
+padding: 16px 32px 16px 32px;
+border: 1px solid rgb(218, 221, 225);
+border-radius: 200px;
+color: rgb(16, 24, 40);
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.5%;
+}

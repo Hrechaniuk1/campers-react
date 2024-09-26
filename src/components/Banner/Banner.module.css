@@ -1,0 +1,55 @@
+.main {
+    background-image: url(../../assets/MainBackground.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+.main h1 {
+color: rgb(247, 247, 247);
+font-size: 48px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0%;
+text-align: left;
+margin-bottom: 20px;
+}
+
+.main p {
+color: rgb(247, 247, 247);
+font-size: 24px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.btn {
+width: 173px;
+height: 56px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 10;
+padding: 15px 60px 15px 60px;
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 40px 0px;
+border-radius: 200px;
+background: rgb(228, 72, 72);
+color: rgb(255, 255, 255);
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.5%;
+white-space: nowrap;
+}
