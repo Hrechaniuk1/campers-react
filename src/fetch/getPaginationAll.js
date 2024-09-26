@@ -1,7 +1,7 @@
 import axios from "axios";
 
-async function getAll(data) {
-    const {equipment, location, form } = data
+async function getPaginationAll(data) {
+    const {equipment, location, form, page } = data
     const equipmentList = {
         AC: '',
         Automatic: '',
@@ -18,8 +18,8 @@ async function getAll(data) {
     })
     const isLocation = location ? location : ''
     const isForm = form ? form : ''
-    const response = await axios.get(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers?page=${1}&limit=${7}&location=${isLocation}&AC=${equipmentList.AC}&bathroom=${equipmentList.Bathroom}&kitchen=${equipmentList.Kitchen}&TV=${equipmentList.TV}&transmission=${equipmentList.Automatic? 'automatic' : ''}&form=${isForm}`)
+    const response = await axios.get(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers?page=${page}&limit=${7}&location=${isLocation}&AC=${equipmentList.AC}&bathroom=${equipmentList.Bathroom}&kitchen=${equipmentList.Kitchen}&TV=${equipmentList.TV}&transmission=${equipmentList.Automatic? 'automatic' : ''}&form=${isForm}`)
  return response.data
 }
 
-export default getAll
+export default getPaginationAll

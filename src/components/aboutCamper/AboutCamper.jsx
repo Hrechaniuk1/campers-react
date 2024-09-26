@@ -1,10 +1,10 @@
 import css from './AboutCamper.module.css'
 
-function AboutCamper() {
+function AboutCamper({data}) {
 
     return (
         <div>
-            <h3>Title</h3>
+            <h3>{data.name}</h3>
             <ul>
                 <li>
                     <img src="" alt="" />

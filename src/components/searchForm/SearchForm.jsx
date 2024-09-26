@@ -1,17 +1,22 @@
 import css from './SearchForm.module.css'
 import { Form, Field, Formik } from 'formik'
+import { useDispatch } from 'react-redux';
+
+import { changeFilter } from '../../redux/slice';
 
 
-function SearchForm({onSubmit}) {
+function SearchForm() {
+
+  const dispatch = useDispatch()
 
     const initialValues = {
         location: '', 
         equipment: [], 
-        type: '' 
+        form: '' 
     };
 
     function submitHandler(values) {
-        // onSubmit(values)
+        dispatch(changeFilter(values))
     }
 
     return (
@@ -70,15 +75,15 @@ function SearchForm({onSubmit}) {
                 <div>
                     <h4>Vehicle type</h4>
                     <label>
-              <Field type="radio" name="type" value="can" />
+              <Field type="radio" name="form" value="can" />
               Van
             </label>
             <label>
-              <Field type="radio" name="type" value="fullyIntegrated" />
+              <Field type="radio" name="form" value="fullyIntegrated" />
               Fully Integrated
             </label>
             <label>
-              <Field type="radio" name="type" value="alcove" />
+              <Field type="radio" name="form" value="alcove" />
               Alcove
             </label>
                 </div>
