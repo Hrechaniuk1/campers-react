@@ -1,6 +1,7 @@
 import css from './SearchForm.module.css'
 import { Form, Field, Formik } from 'formik'
 
+
 function SearchForm({onSubmit}) {
 
     const initialValues = {
@@ -11,7 +12,6 @@ function SearchForm({onSubmit}) {
 
     function submitHandler(values) {
         // onSubmit(values)
-        console.log(values)
     }
 
     return (
@@ -70,15 +70,15 @@ function SearchForm({onSubmit}) {
                 <div>
                     <h4>Vehicle type</h4>
                     <label>
-              <Field type="radio" name="type" value="Van" />
+              <Field type="radio" name="type" value="can" />
               Van
             </label>
             <label>
-              <Field type="radio" name="type" value="Fully Integrated" />
+              <Field type="radio" name="type" value="fullyIntegrated" />
               Fully Integrated
             </label>
             <label>
-              <Field type="radio" name="type" value="Alcove" />
+              <Field type="radio" name="type" value="alcove" />
               Alcove
             </label>
                 </div>

@@ -6,6 +6,7 @@ import css from './CapmerDetailsPage.module.css'
 import AboutCamper from '../../components/aboutCamper/AboutCamper'
 import Reviews from '../../components/reviews/Reviews'
 import Futures from '../../components/features/Features'
+import getOne from "../../fetch/getOne";
 
 function CapmerDetailsPage() {
 
