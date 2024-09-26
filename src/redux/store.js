@@ -1,12 +1,10 @@
-import { combineReducers } from "redux";
-import storage from "redux-persist/lib/storage";
-
-import { camperReducer } from "./slice";
+import { configureStore } from "@reduxjs/toolkit";
+import {camperReducer} from "./slice";
 
 export const store = configureStore({
-    reducer: {
-      camper: camperReducer
-    }
-  });
+  reducer: {
+    campers: camperReducer,
+    },
+});
 
-export default store
+export default store;

@@ -23,7 +23,7 @@ function CamperItem({data}) {
             <ul>
                 <li>future</li>
             </ul>
-            <Link className={css.btn} to={`/campers/${data.id}`} >Show more</Link>
+            <Link className={css.btn} to={`/catalog/${data.id}`} >Show more</Link>
         </div>
         </div>
     )

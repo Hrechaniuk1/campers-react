@@ -2,9 +2,9 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import css from './CampersList.module.css'
 import CamperItem from '../camperItem/CamperItem'
-import { selectCapmers, selectPage, selectFilters } from '../../redux/selectors'
+import { selectCapmers, selectPage, selectFilters, selectTotalPages } from '../../redux/selectors'
 import {changePage} from '../../redux/slice.js'
-import { fetchAll, fetchPaginationAll } from '../../redux/operations.js'
+import { fetchAll } from '../../redux/operations.js'
 import { useEffect } from 'react'
 
 function CampersList() {
@@ -12,15 +12,13 @@ function CampersList() {
     const campers = useSelector(selectCapmers)
     const page = useSelector(selectPage)
     const filters = useSelector(selectFilters)
+    const totalPages = useSelector(selectTotalPages)
     const dispatch = useDispatch()
 
     useEffect (() => {
         dispatch(fetchAll())
-      }, [dispatch, filters])
-    
-    useEffect(() => {
-        dispatch(fetchPaginationAll())
-    }, [dispatch, page])
+      }, [dispatch, filters, page])
+
 
     function clickHandler() {
         dispatch(changePage(page + 1))
@@ -33,7 +31,7 @@ function CampersList() {
                 return (<li key={item.id}><CamperItem data={item}></CamperItem></li>)
             })}
             </ul>
-            <button className={css.loadMore} onClick={clickHandler}>Load more</button>
+            {(totalPages > page) ? <button className={css.loadMore} onClick={clickHandler}>Load more</button> : <></>}
         </div>
     )
 }

@@ -7,8 +7,6 @@ import css from './CapmerDetailsPage.module.css'
 import AboutCamper from '../../components/aboutCamper/AboutCamper'
 import Reviews from '../../components/reviews/Reviews'
 import Futures from '../../components/features/Features'
-import Futures from "../../components/features/Features";
-import Reviews from "../../components/reviews/Reviews";
 import getOne from "../../fetch/getOne";
 import { selectError, selectLoading } from "../../redux/selectors";
 import { changeError, changeLoading } from "../../redux/slice";
@@ -18,7 +16,6 @@ function CapmerDetailsPage() {
     const [item, setItem] = useState()
     const error = useSelector(selectError)
     const loading = useSelector(selectLoading)
-
     const {id} = useParams()
     const dispatch = useDispatch()
 
@@ -27,7 +24,7 @@ function CapmerDetailsPage() {
             try {
             dispatch(changeLoading(true))
             const response = await getOne(id)
-            setItem(response.data)
+            setItem(response)
             } catch {
                 dispatch(changeError(true))
             } finally {
@@ -35,10 +32,10 @@ function CapmerDetailsPage() {
             }
         }
         getInfo()
-    })
+    }, [dispatch])
 
     return (
-        <section>
+      (!loading && item && !error)?  <section>
             <AboutCamper data={item}></AboutCamper>
             <ul>
                 <li>
@@ -51,7 +48,7 @@ function CapmerDetailsPage() {
             <Suspense fallback={<p className={css.loading}>Loading..</p>}>
                 <Outlet></Outlet>
             </Suspense>
-        </section>
+        </section> : <p>Loading...</p>
     )
 
 }

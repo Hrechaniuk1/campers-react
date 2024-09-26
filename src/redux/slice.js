@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { fetchAll, fetchPaginationAll } from "./operations";
+import { fetchAll } from "./operations";
 
 const camperSlice = createSlice({
     name: 'campers',
@@ -48,28 +48,20 @@ const camperSlice = createSlice({
         builder
         .addCase(fetchAll.pending, (state, action) => { 
             state.loading = true
-            console.log(action.payload)})
+        }
+        )
         .addCase(fetchAll.fulfilled, (state, action) => {
             state.error = false
-            state.page = 1
+            const page = state.page
+            if(page !== 1) {
+                state.items = [...state.items, ...action.payload.items]
+            } else {
+                state.items = action.payload.items
+            }
             state.loading = false
-            state.items = action.payload.items
             state.total = action.payload.total
         })
         .addCase(fetchAll.rejected, (state, action) => {
-            state.loading = false
-            state.error = true
-        })
-        .addCase(fetchPaginationAll.pending, (state, action) => { 
-            state.loading = true
-            console.log(action.payload)})
-        .addCase(fetchPaginationAll.fulfilled, (state, action) => {
-            state.error = false
-            state.loading = false
-            state.items = [...state.items, ...action.payload.items]
-            state.total = action.payload.total
-        })
-        .addCase(fetchPaginationAll.rejected, (state, action) => {
             state.loading = false
             state.error = true
         })

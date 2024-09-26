@@ -2,7 +2,7 @@ import css from './SearchForm.module.css'
 import { Form, Field, Formik } from 'formik'
 import { useDispatch } from 'react-redux';
 
-import { changeFilter } from '../../redux/slice';
+import { changeFilter, changePage } from '../../redux/slice';
 
 
 function SearchForm() {
@@ -16,6 +16,7 @@ function SearchForm() {
     };
 
     function submitHandler(values) {
+        dispatch(changePage(1))
         dispatch(changeFilter(values))
     }
 
