@@ -8,16 +8,22 @@ function Reviews() {
 
     return (
         <ul>
-            {data.reviews.map(item => (
-                <li key={item.reviewer_name + 'keyRev'}>
+            {data.reviews.map(item => 
+                {
+                    const letter = item.reviewer_name.charAt(0).toUpperCase();
+                
+                return <li key={item.reviewer_name + 'keyRev'}>
                 <div>
-                <img src="" alt="" /> 
+                <div>
+                    {letter}
+                </div>
                 <p>{item.reviewer_name}</p> 
                 <ul></ul> 
                 </div>
                 <p>{item.comment}</p>
-            </li>
-            ))}
+            </li>}
+            
+            )}
         </ul>
     )
 
