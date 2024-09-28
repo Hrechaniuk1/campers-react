@@ -19,7 +19,6 @@ async function getAll(data) {
     const isLocation = location ? location : ''
     const isForm = form ? form : ''
     const response = await axios.get(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers?page=${page}&limit=${5}&location=${isLocation}&AC=${equipmentList.AC}&bathroom=${equipmentList.Bathroom}&kitchen=${equipmentList.Kitchen}&TV=${equipmentList.TV}&transmission=${equipmentList.Automatic? 'automatic' : ''}&form=${isForm}`)
- console.log(response)
     return response.data
 }
 

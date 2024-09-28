@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { changeFilter, changePage } from '../../redux/slice';
 import { selectFilters } from '../../redux/selectors';
+import Icon from '../Icon';
 
 
 function SearchForm() {
@@ -35,68 +36,88 @@ function SearchForm() {
         enableReinitialize
         >
             <Form>
-                <label htmlFor="location">Location</label>
-                <Field id='location' name='location'></Field>
-                <p>Filters</p>
+              <div className={css.locationBox}>
+                <label className={css.locLabel} htmlFor="location">Location</label>
+                <Field className={css.locInput} id='location' name='location' placeholder='City' ></Field>
+                <Icon cl={css.mapIcon} id='icon-map' width='20' height='20' ></Icon>
+                </div>
+                <p className={css.filterTitle}>Filters</p>
                 <div>
-                    <h4>Vehicle equipment</h4>
-                    <label>
+                    <h3 className={css.vehTitle}>Vehicle equipment</h3>
+                    <div className={css.filterGroup}>
+                    <label className={css.label}>
               <Field
                 type="checkbox"
                 name="equipment"
                 value="AC"
+                className={css.checkbox}
               />
-              AC
+              <Icon cl={css.icon} id='icon-wind' width='32' height='28'></Icon>
+              <p>AC</p>
             </label>
-            <label>
+            <label className={css.label}>
               <Field
                 type="checkbox"
                 name="equipment"
                 value="Automatic"
+                className={css.checkbox}
               />
-              Automatic
+              <Icon cl={css.icon} id='icon-diagram' width='32' height='28'></Icon>
+              <p>Automatic</p>
             </label>
-            <label>
+            <label className={css.label}>
               <Field
                 type="checkbox"
                 name="equipment"
                 value="Kitchen"
+                className={css.checkbox}
               />
-              Kitchen
+              <Icon cl={css.icon} id='icon-cup' width='32' height='28'></Icon>
+              <p>Kitchen</p>
             </label>
-            <label>
+            <label  className={css.label}>
               <Field
                 type="checkbox"
                 name="equipment"
                 value="TV"
+                className={css.checkbox}
               />
-              TV
+              <Icon cl={css.icon} id='icon-tv' width='32' height='28'></Icon>
+              <p>TV</p>
             </label>
-            <label>
+            <label className={css.label}>
               <Field
                 type="checkbox"
                 name="equipment"
                 value="Bathroom"
+                className={css.checkbox}
               />
-              Bathroom
+              <Icon cl={css.icon} id='icon-droplet' width='32' height='28'></Icon>
+              <p>Bathroom</p>
             </label>
+            </div>
                 </div>
                 <div>
-                    <h4>Vehicle type</h4>
-                    <label>
-              <Field type="radio" name="form" value="can" />
-              Van
+                    <h4 className={css.radioTitle}>Vehicle type</h4>
+                    <div className={css.radioGroup}>
+                    <label className={css.radioLabel}>
+              <Field className={css.radio} type="radio" name="form" value="can" />
+              <Icon cl={css.icon} id='icon-1x2' width='32' height='32' ></Icon>
+              <p>Van</p>
             </label>
-            <label>
-              <Field type="radio" name="form" value="fullyIntegrated" />
-              Fully Integrated
+            <label className={css.radioLabel}>
+              <Field className={css.radio} type="radio" name="form" value="fullyIntegrated" />
+              <Icon cl={css.icon} id='icon-2x2' width='32' height='32' ></Icon>
+              <p>Fully<br></br>Integrated</p>
             </label>
-            <label>
-              <Field type="radio" name="form" value="alcove" />
-              Alcove
+            <label className={css.radioLabel}>
+              <Field className={css.radio} type="radio" name="form" value="alcove" />
+              <Icon cl={css.icon} id='icon-3x3' width='32' height='32' ></Icon>
+              <p>Alcove</p>
             </label>
+            </div>
                 </div>
-                <button type='submit'>Search</button>
+                <button className={css.btn} type='submit'>Search</button>
                 {/* <button onClick={resetHandler} type='button' >Reset</button> */}
             </Form>
         </Formik>

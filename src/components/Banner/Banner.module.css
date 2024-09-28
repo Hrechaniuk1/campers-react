@@ -52,4 +52,9 @@ font-weight: 500;
 line-height: 24px;
 letter-spacing: -0.5%;
 white-space: nowrap;
+transition: all 250ms ease-in-out;
+}
+
+.btn:hover {
+background-color: rgb(216, 67, 67);
 }

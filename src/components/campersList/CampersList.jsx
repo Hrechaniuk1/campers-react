@@ -18,8 +18,6 @@ function CampersList() {
     const favs = useSelector(selectFavorite)
     const dispatch = useDispatch()
 
-    console.log(campers)
-
     useEffect (() => {
         dispatch(fetchAll())
       }, [dispatch, filters, page])
@@ -28,8 +26,6 @@ function CampersList() {
     function clickHandler() {
         dispatch(changePage(page + 1))
     }
-
-    console.log(totalPages, page)
 
     return (
         <div>

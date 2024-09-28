@@ -1,0 +1,140 @@
+.locationBox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 360px;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.locInput {
+    width: 360px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 48px;
+    padding-right: 20px;
+color: rgb(16, 24, 40);
+font-family: Inter;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+border-radius: 12px;
+background: rgb(247, 247, 247);
+
+}
+
+.locLabel {
+color: rgb(108, 113, 123);
+font-family: Inter;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.mapIcon {
+    stroke: black;
+    position: absolute;
+    top: 52px;
+    left: 20px;
+}
+/*  */
+.filterTitle {
+    /* Body 2 */
+color: rgb(71, 84, 103);
+font-family: Inter;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+margin-bottom: 32px;
+}
+
+.vehTitle, .radioTitle {
+color: rgb(16, 24, 40);
+font-family: Inter;
+font-size: 20px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+margin-bottom: 24px;
+}
+
+
+.filterGroup, .radioGroup {
+    padding-top: 24px;
+    border-top: 1px solid rgb(218, 221, 225);
+    width: 360px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.icon {
+    stroke: black;
+}
+
+.checkbox, .radio {
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+}
+
+.label, .radioLabel {
+border: 1px solid rgb(218, 221, 225);
+border-radius: 12px;
+height: 96px;
+cursor: pointer;
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 10px;
+justify-content: center;
+align-items: center;
+text-align: center;
+transition: all 250ms ease-in-out;
+}
+
+.label:has(.checkbox:checked) {
+    border-color: rgb(228, 72, 72);
+}
+
+.radioLabel:has(.radio:checked) {
+    border-color: rgb(228, 72, 72);
+}
+
+/*  */
+.btn {
+    width: 166px;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10;
+    padding: 15px 60px 15px 60px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 40px 0px;
+    border-radius: 200px;
+    background: rgb(228, 72, 72);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.5%;
+    white-space: nowrap;
+    transition: all 250ms ease-in-out;
+    }
+
+.btn:hover {
+    background-color: rgb(216, 67, 67);
+}
