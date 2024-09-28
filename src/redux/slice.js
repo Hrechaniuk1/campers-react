@@ -14,10 +14,21 @@ const camperSlice = createSlice({
             equipment: [],
             form: ''
         },
+        locations: [],
         error: false,
         loading: false,
     },
     reducers: {
+        changeFavorite: {
+            reducer(state, action) {
+                state.favorite.push(action.payload)
+            }
+        },
+        deleteFavorite: {
+            reducer(state, action) {
+              state.favorite = state.favorite.filter(item => item !== action.payload)
+            }
+        },
         changeFilter: {
             reducer(state, action) {
                 state.filters = action.payload
@@ -62,6 +73,7 @@ const camperSlice = createSlice({
             state.total = action.payload.total
         })
         .addCase(fetchAll.rejected, (state, action) => {
+            state.items = []
             state.loading = false
             state.error = true
         })
@@ -70,5 +82,5 @@ const camperSlice = createSlice({
 })
 
 
-export const {changeError, changeFilter, changeLoading, changePage, changeTotal} = camperSlice.actions
+export const {changeError, changeFilter, changeLoading, changePage, changeTotal, changeFavorite, deleteFavorite} = camperSlice.actions
 export const camperReducer = camperSlice.reducer

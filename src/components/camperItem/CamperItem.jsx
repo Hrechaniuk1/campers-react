@@ -1,7 +1,21 @@
-import { Link } from 'react-router-dom'
-import css from './CamperItem.module.css'
+import { useDispatch } from 'react-redux'
+import { memo } from 'react'
 
-function CamperItem({data}) {
+import css from './CamperItem.module.css'
+import { changeFavorite, deleteFavorite } from '../../redux/slice'
+
+function CamperItem({data, isFavorite}) {
+
+    const dispatch = useDispatch()
+
+    function changeHandler(event) {
+        const isChecked = event.target.checked;
+        if(isChecked) {
+            dispatch(changeFavorite(data.id))
+        } else {
+            dispatch(deleteFavorite(data.id))
+        }
+    }
 
     return (
         <div className={css.container}>
@@ -10,7 +24,7 @@ function CamperItem({data}) {
             <div>
                 <h3>{data.name}</h3>
                 <p>{data.price}</p>
-                <input type="checkbox" />
+                <input onChange={changeHandler} checked={isFavorite} type="checkbox" />
 
             </div>
             <div>
@@ -23,11 +37,13 @@ function CamperItem({data}) {
             <ul>
                 <li>future</li>
             </ul>
-            <Link className={css.btn} to={`/catalog/${data.id}`} >Show more</Link>
+            <a className={css.btn} href={`/catalog/${data.id}`} target="_blank" rel="noopener noreferrer">
+                Show more
+            </a>
         </div>
         </div>
     )
 
 }
 
-export default CamperItem
+export default memo(CamperItem)

@@ -1,34 +1,42 @@
 import css from './SearchForm.module.css'
 import { Form, Field, Formik } from 'formik'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { changeFilter, changePage } from '../../redux/slice';
+import { selectFilters } from '../../redux/selectors';
 
 
 function SearchForm() {
 
   const dispatch = useDispatch()
+  const filters = useSelector(selectFilters)
 
     const initialValues = {
-        location: '', 
-        equipment: [], 
-        form: '' 
+        location: filters.location, 
+        equipment: filters.equipment, 
+        form: filters.form 
     };
 
     function submitHandler(values) {
         dispatch(changePage(1))
-        dispatch(changeFilter(values))
+        dispatch(changeFilter({...values, location: values.location.trim()}))
     }
+
+    // function resetHandler() {
+    //   dispatch(changeFilter({location: '', equipment: [], form: ''}))
+    //   dispatch(changePage(1))
+    // }
+    
 
     return (
         <Formik
         initialValues={initialValues}
         onSubmit={submitHandler}
-
+        enableReinitialize
         >
             <Form>
                 <label htmlFor="location">Location</label>
-                <Field id='location'></Field>
+                <Field id='location' name='location'></Field>
                 <p>Filters</p>
                 <div>
                     <h4>Vehicle equipment</h4>
@@ -89,6 +97,7 @@ function SearchForm() {
             </label>
                 </div>
                 <button type='submit'>Search</button>
+                {/* <button onClick={resetHandler} type='button' >Reset</button> */}
             </Form>
         </Formik>
     )

@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 
 import css from './CampersList.module.css'
 import CamperItem from '../camperItem/CamperItem'
-import { selectCapmers, selectPage, selectFilters, selectTotalPages } from '../../redux/selectors'
+import { selectCapmers, selectPage, selectFilters, selectTotalPages, selectFavorite } from '../../redux/selectors'
 import {changePage} from '../../redux/slice.js'
 import { fetchAll } from '../../redux/operations.js'
-import { useEffect } from 'react'
+
+
 
 function CampersList() {
 
@@ -13,7 +15,10 @@ function CampersList() {
     const page = useSelector(selectPage)
     const filters = useSelector(selectFilters)
     const totalPages = useSelector(selectTotalPages)
+    const favs = useSelector(selectFavorite)
     const dispatch = useDispatch()
+
+    console.log(campers)
 
     useEffect (() => {
         dispatch(fetchAll())
@@ -24,11 +29,14 @@ function CampersList() {
         dispatch(changePage(page + 1))
     }
 
+    console.log(totalPages, page)
+
     return (
         <div>
             <ul className={css.list}>
             {campers.map(item => {
-                return (<li key={item.id}><CamperItem data={item}></CamperItem></li>)
+                const isFavorite = favs.includes(item.id);
+                return (<li key={item.id}><CamperItem data={item} isFavorite={isFavorite}></CamperItem></li>)
             })}
             </ul>
             {(totalPages > page) ? <button className={css.loadMore} onClick={clickHandler}>Load more</button> : <></>}

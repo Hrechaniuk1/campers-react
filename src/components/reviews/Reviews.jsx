@@ -1,17 +1,23 @@
+import { useOutletContext } from 'react-router-dom';
+
 import css from './Reviews.module.css'
 
 function Reviews() {
 
+    const { data } = useOutletContext();
+
     return (
         <ul>
-            <li>
+            {data.reviews.map(item => (
+                <li key={item.reviewer_name + 'keyRev'}>
                 <div>
                 <img src="" alt="" /> 
-                <p></p> 
+                <p>{item.reviewer_name}</p> 
                 <ul></ul> 
                 </div>
-                <p>text</p>
+                <p>{item.comment}</p>
             </li>
+            ))}
         </ul>
     )
 

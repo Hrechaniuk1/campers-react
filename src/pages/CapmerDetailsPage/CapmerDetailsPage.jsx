@@ -8,6 +8,7 @@ import AboutCamper from '../../components/aboutCamper/AboutCamper'
 import Reviews from '../../components/reviews/Reviews'
 import Futures from '../../components/features/Features'
 import getOne from "../../fetch/getOne";
+import RegistrationForm from "../../components/registrationForm/RegistrationForm";
 import { selectError, selectLoading } from "../../redux/selectors";
 import { changeError, changeLoading } from "../../redux/slice";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,15 +40,17 @@ function CapmerDetailsPage() {
             <AboutCamper data={item}></AboutCamper>
             <ul>
                 <li>
-                    <Link to='futures'><Futures data={item}></Futures></Link>
+                    <Link to='futures'>Futures</Link>
                 </li>
                 <li>
-                    <Link to='reviews'><Reviews data={item}></Reviews></Link>
+                    <Link to='reviews'>Reviews</Link>
                 </li>
             </ul>
             <Suspense fallback={<p className={css.loading}>Loading..</p>}>
-                <Outlet></Outlet>
+            <Outlet context={{ data: item }} />
             </Suspense>
+            <RegistrationForm data={id}></RegistrationForm>
+
         </section> : <p>Loading...</p>
     )
 

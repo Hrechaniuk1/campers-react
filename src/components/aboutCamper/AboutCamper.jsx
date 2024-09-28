@@ -8,18 +8,20 @@ function AboutCamper({data}) {
             <ul>
                 <li>
                     <img src="" alt="" />
-                    <p>Reviews</p>
+                    <p>{`${data.rating}(${data.reviews.length} reviews)`}</p>
                 </li>
                 <li>
                     <img src="" alt="" />
-                    <p>Location</p>
+                    <p>{data.location}</p>
                 </li>
             </ul>
-            <p>Price</p>
+            <p>{`€ ${data.price.toFixed(2)}`}</p>
             <ul>
-
+                {data.gallery.map(item => (
+                    <li key={item.original}><img src={item.original} alt="" /></li>
+                ))}
             </ul>
-            <p>description</p>
+            <p>{data.description}</p>
         </div>
     )
 
