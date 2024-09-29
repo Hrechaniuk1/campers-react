@@ -18,7 +18,11 @@ function RegistrationForm(data) {
 
     function submitHandler(values) {
         toast('Reserved', { style: {backgroundColor: 'green'}})
+        resetForm();
     }
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
 
     const validationSchema = Yup.object({
         name: Yup.string().min(2).max(15).matches(/^[A-Za-z]+$/, 'Name must contain only letters')
@@ -28,6 +32,7 @@ function RegistrationForm(data) {
             .required('Email is required'),
         bookingDate: Yup.date()
             .required('Booking date is required') 
+            .min(tomorrow, 'Booking date cannot be earlier than tomorrow')
             .nullable(), 
         comment: Yup.string()
             .max(200, 'Comment must be 200 characters or less'), 
