@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import css from './CampersList.module.css'
 import CamperItem from '../camperItem/CamperItem'
 import { selectCapmers, selectPage, selectFilters, selectTotalPages, selectFavorite } from '../../redux/selectors'
-import {changePage} from '../../redux/slice.js'
+import {changePage, clearItems} from '../../redux/slice.js'
 import { fetchAll } from '../../redux/operations.js'
 
 
@@ -18,10 +18,9 @@ function CampersList() {
     const favs = useSelector(selectFavorite)
     const dispatch = useDispatch()
 
-    useEffect (() => {
+    useEffect(() => {
         dispatch(fetchAll())
-      }, [dispatch, filters, page])
-
+    }, [dispatch, filters, page])
 
     function clickHandler() {
         dispatch(changePage(page + 1))

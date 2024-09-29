@@ -2,7 +2,7 @@ import css from './SearchForm.module.css'
 import { Form, Field, Formik } from 'formik'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeFilter, changePage } from '../../redux/slice';
+import { changeFilter, changePage, clearItems } from '../../redux/slice';
 import { selectFilters } from '../../redux/selectors';
 import Icon from '../Icon';
 
@@ -19,14 +19,15 @@ function SearchForm() {
     };
 
     function submitHandler(values) {
+        dispatch(clearItems())
         dispatch(changePage(1))
         dispatch(changeFilter({...values, location: values.location.trim()}))
     }
 
-    function resetHandler() {
-      dispatch(changeFilter({location: '', equipment: [], form: ''}))
-      dispatch(changePage(1))
-    }
+    // function resetHandler() {
+    //   dispatch(changeFilter({location: '', equipment: [], form: ''}))
+    //   dispatch(changePage(1))
+    // }
     
 
     return (
@@ -117,10 +118,11 @@ function SearchForm() {
             </label>
             </div>
                 </div>
-                <ul className={css.btnList}>
+                <li><button className={css.btn} type='submit'>Search</button></li>
+                {/* <ul className={css.btnList}>
                   <li><button className={css.btn} type='submit'>Search</button></li>
                   <li><button className={css.btn} onClick={resetHandler} type='button' >Reset</button></li>
-                </ul>
+                </ul> */}
             </Form>
         </Formik>
     )

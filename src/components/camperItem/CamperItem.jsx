@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 import { memo } from 'react'
 
 import css from './CamperItem.module.css'
-import { changeFavorite, deleteFavorite } from '../../redux/slice'
+import { changeFavorite, deleteFavorite } from '../../redux/favoriteSlice'
 import Icon from '../Icon'
 
 function CamperItem({data, isFavorite}) {

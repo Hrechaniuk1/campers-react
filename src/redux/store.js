@@ -9,14 +9,17 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 
 import {camperReducer} from "./slice";
+import { favoriteReducer } from "./favoriteSlice";
 
 const rootReducer = combineReducers({
-  campers: camperReducer
+  campers: camperReducer,
+  favorite: favoriteReducer
 });
 
 const persistConfig = {
   key: "root",
   storage, 
+  whitelist: ['favorite'], 
 };
 
 

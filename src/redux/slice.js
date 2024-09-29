@@ -6,7 +6,7 @@ const camperSlice = createSlice({
     name: 'campers',
     initialState: {
         items: [],
-        favorite: [],
+        // favorite: [],
         page: 1,
         total: 1,
         filters: {
@@ -19,16 +19,21 @@ const camperSlice = createSlice({
         loading: false,
     },
     reducers: {
-        changeFavorite: {
-            reducer(state, action) {
-                state.favorite.push(action.payload)
+        clearItems: {
+            reducer(state) {
+                state.items = []
             }
         },
-        deleteFavorite: {
-            reducer(state, action) {
-              state.favorite = state.favorite.filter(item => item !== action.payload)
-            }
-        },
+        // changeFavorite: {
+        //     reducer(state, action) {
+        //         state.favorite.push(action.payload)
+        //     }
+        // },
+        // deleteFavorite: {
+        //     reducer(state, action) {
+        //       state.favorite = state.favorite.filter(item => item !== action.payload)
+        //     }
+        // },
         changeFilter: {
             reducer(state, action) {
                 state.filters = action.payload
@@ -82,5 +87,5 @@ const camperSlice = createSlice({
 })
 
 
-export const {changeError, changeFilter, changeLoading, changePage, changeTotal, changeFavorite, deleteFavorite} = camperSlice.actions
+export const {changeError, changeFilter, changeLoading, changePage, changeTotal, changeFavorite, deleteFavorite, clearItems} = camperSlice.actions
 export const camperReducer = camperSlice.reducer
