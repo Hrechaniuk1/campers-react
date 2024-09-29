@@ -6,19 +6,28 @@ import Icon from '../Icon'
 function Futures() {
 
     const { data } = useOutletContext();
-    const futures = {
-        transmission: data.transmission || 'N/A',
-        AC: data.AC || false,
-        bathroom: data.bathroom || false,
-        kitchen: data.kitchen || false,
-        radio: data.radio || false,
+
+      let form
+
+      switch (data.form) {
+        case 'alcove':
+          form = 'Alcove';
+          break;
+        case 'fullyIntegrated':
+          form = 'Fully integrated';
+          break;
+        case 'van':
+          form = 'Van';
+          break;
       }
+
+
       const details = {
         form: data.form || 'Unknown',
-        length: data.length || 0,
-        width: data.width || 0,
-        height: data.height || 0,
-        tank: data.tank || 0,
+        length: parseFloat(data.length) || 0,
+        width: parseFloat(data.width) || 0,
+        height: parseFloat(data.height) || 0,
+        tank: parseFloat(data.tank) || 0,
         consumption: data.consumption || 0,
       }; 
 
@@ -40,23 +49,23 @@ function Futures() {
                 <ul className={css.detailsList}>
                     <li className={css.detailBox}>
                         <p>Form</p>
-                        <p>{details.form}</p>
+                        <p>{form}</p>
                         </li>
                         <li className={css.detailBox}> 
                         <p>Length</p>
-                        <p>{details.length}</p>
+                        <p>{details.length} m</p>
                         </li>
                         <li className={css.detailBox}>
                         <p>Width</p>
-                        <p>{details.width}</p>
+                        <p>{details.width} m</p>
                         </li>
                         <li className={css.detailBox}>
                         <p>Height</p>
-                        <p>{details.height}</p>
+                        <p>{details.height} m</p>
                         </li>
                         <li className={css.detailBox}>
                         <p>Tank</p>
-                        <p>{details.tank}</p>
+                        <p>{details.tank} l</p>
                         </li>
                         <li className={css.detailBox} >
                         <p>Consumption</p>

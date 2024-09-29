@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import css from './CatalogPage.module.css'
 import CampersList from '../../components/campersList/CampersList'
 import SearchForm from '../../components/searchForm/SearchForm'
-import { selectCapmers, selectPage, selectFilters, selectTotalPages, selectFavorite, selectLoading } from '../../redux/selectors'
+import { selectCapmers, selectError, selectPage, selectFilters, selectTotalPages, selectFavorite, selectLoading } from '../../redux/selectors'
 import { fetchAll } from '../../redux/operations.js'
 import { changePage } from '../../redux/slice.js'
 import Loader from '../../components/Loader/Loader'
@@ -19,6 +19,7 @@ function CatalogPage() {
     const filters = useSelector(selectFilters)
     const totalPages = useSelector(selectTotalPages)
     const favs = useSelector(selectFavorite)
+    const err = useSelector(selectError)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -32,7 +33,7 @@ function CatalogPage() {
     return (
        !loading ? <section className={css.page}>
         <SearchForm></SearchForm>
-        <CampersList totalPages={totalPages} page={page} clickHandler={clickHandler} campers={campers} favs={favs}></CampersList>
+        {!err ? <CampersList totalPages={totalPages} page={page} clickHandler={clickHandler} campers={campers} favs={favs}></CampersList> : <></>}
         </section> : <Loader></Loader>
     )
 
