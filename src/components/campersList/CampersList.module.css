@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    margin-bottom: 40px;
 }
 
 .loadMore {
@@ -22,4 +23,9 @@ font-size: 16px;
 font-weight: 500;
 line-height: 24px;
 letter-spacing: -0.5%;
+transition: all 250ms ease-in-out;
+}
+
+.loadMore:hover {
+    border: 1px solid rgb(216, 67, 67);
 }

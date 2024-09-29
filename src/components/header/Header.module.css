@@ -24,3 +24,6 @@
     left: 64px;
 }
 
+.active {
+    color: rgb(216, 67, 67);
+}

@@ -1,9 +1,10 @@
 .container {
 width: 888px;
-display: flex;
+display: grid;
+grid-template-columns: 1fr 2fr;
 justify-content: center;
-align-items: center;
-gap: 24;
+/* align-items: center; */
+gap: 24px;
 padding: 24px;
 border: 1px solid rgb(218, 221, 225);
 border-radius: 20px;
@@ -21,5 +22,114 @@ align-items: center;
 gap: 10;
 padding: 16px 60px 16px 60px;
 margin: 24px 0px;
+color: rgb(255, 255, 255);
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.5%;
+white-space: nowrap; 
 }
 
+.btn:hover {
+    background-color: rgb(216, 67, 67);
+}
+
+.imgBox {
+    width: 292px;
+    height: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mainImg {
+    height: 110%;
+  width: auto;
+  object-fit: cover;
+  transform: translate(-40%, -5%);
+}
+
+.input {
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+}
+
+.label {
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.label:has(.input:checked) {
+    stroke: rgb(228, 72, 72);
+}
+
+.namePriceBox {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.priceBox {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+}
+
+.title, .price {
+color: rgb(16, 24, 40);
+font-size: 24px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.ratingLocation {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+color: rgb(16, 24, 40);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+}
+
+.icon {
+    fill: rgb(255, 197, 49);
+    margin-right: 4px;
+}
+
+.locationLi {
+    display: flex;
+    gap: 4px;
+}
+
+.description {
+    width: 500px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+color: rgb(71, 84, 103);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+margin-bottom: 24px;
+}
+
+.futureList {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.futureBox {
+    background: rgb(242, 244, 247);
+    padding: 12px 18px 12px 18px;
+    border-radius: 100px;
+    display: flex;
+    gap: 8px;
+}
