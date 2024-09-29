@@ -59,6 +59,15 @@ letter-spacing: 0%;
 text-align: left;
 }
 
+.error {
+    width: 527px;
+    height: 60px;
+    padding: 18px;
+    border-radius: 12px;
+background: rgb(197, 49, 49);
+color: white;
+}
+
 .btn {
     width: 168px;
     height: 56px;

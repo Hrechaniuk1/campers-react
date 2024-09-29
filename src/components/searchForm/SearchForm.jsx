@@ -24,12 +24,6 @@ function SearchForm() {
         dispatch(changeFilter({...values, location: values.location.trim()}))
     }
 
-    // function resetHandler() {
-    //   dispatch(changeFilter({location: '', equipment: [], form: ''}))
-    //   dispatch(changePage(1))
-    // }
-    
-
     return (
         <Formik
         initialValues={initialValues}
@@ -118,11 +112,7 @@ function SearchForm() {
             </label>
             </div>
                 </div>
-                <li><button className={css.btn} type='submit'>Search</button></li>
-                {/* <ul className={css.btnList}>
-                  <li><button className={css.btn} type='submit'>Search</button></li>
-                  <li><button className={css.btn} onClick={resetHandler} type='button' >Reset</button></li>
-                </ul> */}
+                <button className={css.btn} type='submit'>Search</button>
             </Form>
         </Formik>
     )

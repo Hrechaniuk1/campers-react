@@ -25,7 +25,7 @@ function CamperItem({data, isFavorite}) {
             <div className={css.namePriceBox}>
                 <h3 className={css.title}>{data.name}</h3>
                 <div className={css.priceBox}>
-                <p className={css.price}>{`€ ${data.price.toFixed(2)}`}</p>
+                <p className={css.price}>{`€ ${data.price.toFixed(2).replace('.', ',')}`}</p>
                 <label className={css.label} >
                 <input className={css.input} onChange={changeHandler} checked={isFavorite} type="checkbox" />
                 <Icon cl={css.iconHeart} id='icon-heart' width={24} height={20} ></Icon>
@@ -47,6 +47,7 @@ function CamperItem({data, isFavorite}) {
                 {data?.transmission === 'automatic' ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-diagram' width={20} height={15} ></Icon>Automatic</li> : <></>}
                 {data?.AC ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-wind' width={20} height={17} ></Icon>AC</li> : <></>}
                 <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-gas' width={20} height={20} ></Icon>Petrol</li>
+                {data?.TV ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-tv' width={15} height={20} ></Icon>TV</li> : <></>}
                 {data?.kitchen ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-cup' width={20} height={13} ></Icon>Kitchen</li> : <></>}
                 {data?.radio ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-radio' width={19} height={17} ></Icon>Radio</li> : <></>}
                 {data?.bathroom ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-droplet' width={15} height={20} ></Icon>Bathroom</li> : <></>}

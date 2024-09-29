@@ -1,30 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
 
 import css from './CampersList.module.css'
 import CamperItem from '../camperItem/CamperItem'
-import { selectCapmers, selectPage, selectFilters, selectTotalPages, selectFavorite } from '../../redux/selectors'
-import {changePage, clearItems} from '../../redux/slice.js'
-import { fetchAll } from '../../redux/operations.js'
 
-
-
-function CampersList() {
-
-    const campers = useSelector(selectCapmers)
-    const page = useSelector(selectPage)
-    const filters = useSelector(selectFilters)
-    const totalPages = useSelector(selectTotalPages)
-    const favs = useSelector(selectFavorite)
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(fetchAll())
-    }, [dispatch, filters, page])
-
-    function clickHandler() {
-        dispatch(changePage(page + 1))
-    }
+function CampersList({totalPages, page, clickHandler, favs, campers}) {
 
     return (
         <div>

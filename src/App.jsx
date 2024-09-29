@@ -1,7 +1,9 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from 'react-hot-toast';
 
 import Header from "./components/header/Header"
+import Loader from "./components/Loader/Loader";
 const MainPage = lazy(() => import('./pages/MainPage/MainPage'))
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage'))
 const CapmerDetailsPage = lazy(() => import('./pages/CapmerDetailsPage/CapmerDetailsPage'))
@@ -13,8 +15,21 @@ function App() {
 
     return (
         <>
+        <Toaster
+            position="top-right"
+            gutter={8}
+            toastOptions={{
+            // Define default options
+            className: '',
+            duration: 1500,
+            style: {
+             background: '#363636',
+             color: '#fff',
+                }
+            }}
+            />
         <Header></Header>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<Loader></Loader>}>
         <Routes>
             <Route path="/" element={<MainPage></MainPage>}></Route>
             <Route path="/catalog" element={<CatalogPage></CatalogPage>}></Route>

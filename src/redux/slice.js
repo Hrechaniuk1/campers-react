@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { fetchAll } from "./operations";
+import {toast} from 'react-hot-toast' 
+
 
 const camperSlice = createSlice({
     name: 'campers',
     initialState: {
         items: [],
-        // favorite: [],
         page: 1,
         total: 1,
         filters: {
@@ -24,16 +25,6 @@ const camperSlice = createSlice({
                 state.items = []
             }
         },
-        // changeFavorite: {
-        //     reducer(state, action) {
-        //         state.favorite.push(action.payload)
-        //     }
-        // },
-        // deleteFavorite: {
-        //     reducer(state, action) {
-        //       state.favorite = state.favorite.filter(item => item !== action.payload)
-        //     }
-        // },
         changeFilter: {
             reducer(state, action) {
                 state.filters = action.payload
@@ -68,19 +59,20 @@ const camperSlice = createSlice({
         )
         .addCase(fetchAll.fulfilled, (state, action) => {
             state.error = false
+            state.loading = false
             const page = state.page
             if(page !== 1) {
                 state.items = [...state.items, ...action.payload.items]
             } else {
                 state.items = action.payload.items
             }
-            state.loading = false
             state.total = action.payload.total
         })
         .addCase(fetchAll.rejected, (state, action) => {
-            state.items = []
+            // state.items = []
             state.loading = false
             state.error = true
+            toast('Oops, try again', { style: {backgroundColor: 'red'}})
         })
     }
 
