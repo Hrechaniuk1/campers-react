@@ -1,0 +1,68 @@
+.title {
+color: rgb(16, 24, 40);
+font-size: 24px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0%;
+margin-bottom: 8px;
+}
+
+
+.ratingLocation {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+color: rgb(16, 24, 40);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+}
+
+.iconStar {
+    margin-right: 4px;
+    color: rgb(255, 197, 49); 
+}
+
+.locationLi {
+    display: flex;
+    gap: 4px;
+}
+
+.price {
+color: rgb(16, 24, 40);
+font-size: 24px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0%;
+margin-bottom: 28px;
+}
+
+.imgList {
+    display: flex;
+    gap: 48px;
+    overflow: hidden;
+    margin-bottom: 28px;
+}
+
+.imgBox {
+    width: 292px;
+    height: 312px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.img {
+    height: 100%;
+}
+
+.description {
+color: rgb(71, 84, 103);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+}

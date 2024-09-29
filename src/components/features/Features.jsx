@@ -1,6 +1,7 @@
 import { useOutletContext } from 'react-router-dom';
 
 import css from './Features.module.css'
+import Icon from '../Icon'
 
 function Futures() {
 
@@ -19,45 +20,49 @@ function Futures() {
         height: data.height || 0,
         tank: data.tank || 0,
         consumption: data.consumption || 0,
-      };
+      }; 
 
     return (
-        <div>
-            <ul>
-                {futures.transmission ? <li><img src="" alt="" /></li> : <></>}
-                {futures.AC ? <li><img src="" alt="" /></li> : <></>}
-                {futures.bathroom ? <li><img src="" alt="" /></li> : <></>}
-                {<futures className="k"></futures> ? <li><img src="" alt="" /></li> : <></>}
-                {futures.radio ? <li><img src="" alt="" /></li> : <></>}
+        <div className={css.futures}>
+            <div className={css.futureContainer}>
+            <ul className={css.futureList}>
+                {data?.transmission === 'automatic' ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-diagram' width={20} height={15} ></Icon>Automatic</li> : <></>}
+                {data?.AC ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-wind' width={20} height={17} ></Icon>AC</li> : <></>}
+                <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-gas' width={20} height={20} ></Icon>Petrol</li>
+                {data?.kitchen ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-cup' width={20} height={13} ></Icon>Kitchen</li> : <></>}
+                {data?.radio ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-radio' width={19} height={17} ></Icon>Radio</li> : <></>}
+                {data?.bathroom ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-droplet' width={15} height={20} ></Icon>Bathroom</li> : <></>}
+                <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-people' width={20} height={15} ></Icon>2 adults</li>
             </ul>
             <div>
-                <p>Vehicle details</p>
-                <ul>
-                    <li><div>
+                <p className={css.title}>Vehicle details</p>
+                <ul className={css.detailsList}>
+                    <li className={css.detailBox}>
                         <p>Form</p>
                         <p>{details.form}</p>
-                        </div></li>
-                        <li><div>
+                        </li>
+                        <li className={css.detailBox}> 
                         <p>Length</p>
                         <p>{details.length}</p>
-                        </div></li>
-                        <li><div>
+                        </li>
+                        <li className={css.detailBox}>
                         <p>Width</p>
                         <p>{details.width}</p>
-                        </div></li>
-                        <li><div>
+                        </li>
+                        <li className={css.detailBox}>
                         <p>Height</p>
                         <p>{details.height}</p>
-                        </div></li>
-                        <li><div>
+                        </li>
+                        <li className={css.detailBox}>
                         <p>Tank</p>
                         <p>{details.tank}</p>
-                        </div></li>
-                        <li><div>
+                        </li>
+                        <li className={css.detailBox} >
                         <p>Consumption</p>
                         <p>{details.consumption}</p>
-                        </div></li>
+                         </li>
                 </ul>
+            </div>
             </div>
         </div>
     )

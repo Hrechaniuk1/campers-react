@@ -28,14 +28,14 @@ function CamperItem({data, isFavorite}) {
                 <p className={css.price}>{`€ ${data.price.toFixed(2)}`}</p>
                 <label className={css.label} >
                 <input className={css.input} onChange={changeHandler} checked={isFavorite} type="checkbox" />
-                <Icon cl={css.icon} id='icon-heart' width={24} height={20} ></Icon>
+                <Icon cl={css.iconHeart} id='icon-heart' width={24} height={20} ></Icon>
                 </label>
                 </div>
             </div>
             <div>
                 <ul className={css.ratingLocation}>
                     <li>
-                        <Icon cl={css.icon} id='icon-star' width={16} height={16} ></Icon>
+                        <Icon cl={css.iconStar} id='icon-star' width={16} height={16} ></Icon>
                         {`${data.rating}(${data.reviews.length} reviews)`}</li>
                     <li className={css.locationLi}>
                     <Icon cl={css.mapIcon} id='icon-map' width='20' height='20' ></Icon>
@@ -52,7 +52,7 @@ function CamperItem({data, isFavorite}) {
                 {data?.bathroom ? <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-droplet' width={15} height={20} ></Icon>Bathroom</li> : <></>}
                 <li className={css.futureBox}><Icon cl={css.iconFuture} id='icon-people' width={20} height={15} ></Icon>2 adults</li>
             </ul>
-            <a className={css.btn} href={`/catalog/${data.id}`} target="_blank" rel="noopener noreferrer">
+            <a className={css.btn} href={`/catalog/${data.id}/futures`} target="_blank" rel="noopener noreferrer">
                 Show more
             </a>
         </div>

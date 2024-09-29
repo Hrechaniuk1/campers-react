@@ -138,3 +138,8 @@ transition: all 250ms ease-in-out;
 .btn:hover {
     background-color: rgb(216, 67, 67);
 }
+
+.btnList {
+    display: flex;
+    gap: 24px;
+}

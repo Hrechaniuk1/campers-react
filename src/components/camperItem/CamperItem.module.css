@@ -59,6 +59,7 @@ white-space: nowrap;
     transition: all 250ms ease-in-out;
 }
 
+
 .label:has(.input:checked) {
     stroke: rgb(228, 72, 72);
 }
@@ -96,9 +97,9 @@ line-height: 24px;
 letter-spacing: 0%;
 }
 
-.icon {
-    fill: rgb(255, 197, 49);
+.iconStar {
     margin-right: 4px;
+    color: rgb(255, 197, 49); 
 }
 
 .locationLi {
@@ -133,3 +134,5 @@ margin-bottom: 24px;
     display: flex;
     gap: 8px;
 }
+
+

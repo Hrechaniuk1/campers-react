@@ -20,12 +20,16 @@ function RegistrationForm(data) {
         initialValues={initial}
         onSubmit={submitHandler}
         >
-            <Form>
-                <Field name='name' placeholder='Name*'></Field>
-                <Field name='email' placeholder='Email*'></Field>
-                <Field name='bookingDate' placeholder='Booking date*'></Field>
-                <Field name='comment' placeholder='Comment'></Field>
-                <button type='submit' >Send</button>
+            <Form className={css.form}>
+                <h3 className={css.title}>Book your campervan now</h3>
+                <p className={css.description}>Stay connected! We are always ready to help you.</p>
+                <div className={css.inputBox}>
+                <Field className={css.input} name='name' placeholder='Name*'></Field>
+                <Field className={css.input} name='email' placeholder='Email*'></Field>
+                <Field className={css.input} name='bookingDate' placeholder='Booking date*'></Field>
+                <Field className={css.comment} name='comment' as='textarea' placeholder='Comment'></Field>
+                </div>
+                <button className={css.btn} type='submit' >Send</button>
             </Form>
         </Formik>
     )

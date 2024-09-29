@@ -1,5 +1,5 @@
 import { Suspense, useRef } from "react"
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, NavLink, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import css from './CapmerDetailsPage.module.css'
@@ -36,20 +36,22 @@ function CapmerDetailsPage() {
     }, [dispatch])
 
     return (
-      (!loading && item && !error)?  <section>
+      (!loading && item && !error)?  <section className={css.section}>
             <AboutCamper data={item}></AboutCamper>
-            <ul>
+            <ul className={css.linkList}>
                 <li>
-                    <Link to='futures'>Futures</Link>
+                    <NavLink className={({ isActive }) => isActive ? css.active : undefined} to='futures'>Futures</NavLink>
                 </li>
                 <li>
-                    <Link to='reviews'>Reviews</Link>
+                    <NavLink className={({ isActive }) => isActive ? css.active : undefined} to='reviews'>Reviews</NavLink>
                 </li>
             </ul>
+            <div className={css.outletFormBox}>
             <Suspense fallback={<p className={css.loading}>Loading..</p>}>
             <Outlet context={{ data: item }} />
             </Suspense>
             <RegistrationForm data={id}></RegistrationForm>
+            </div>
 
         </section> : <p>Loading...</p>
     )

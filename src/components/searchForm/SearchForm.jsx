@@ -23,10 +23,10 @@ function SearchForm() {
         dispatch(changeFilter({...values, location: values.location.trim()}))
     }
 
-    // function resetHandler() {
-    //   dispatch(changeFilter({location: '', equipment: [], form: ''}))
-    //   dispatch(changePage(1))
-    // }
+    function resetHandler() {
+      dispatch(changeFilter({location: '', equipment: [], form: ''}))
+      dispatch(changePage(1))
+    }
     
 
     return (
@@ -117,8 +117,10 @@ function SearchForm() {
             </label>
             </div>
                 </div>
-                <button className={css.btn} type='submit'>Search</button>
-                {/* <button onClick={resetHandler} type='button' >Reset</button> */}
+                <ul className={css.btnList}>
+                  <li><button className={css.btn} type='submit'>Search</button></li>
+                  <li><button className={css.btn} onClick={resetHandler} type='button' >Reset</button></li>
+                </ul>
             </Form>
         </Formik>
     )

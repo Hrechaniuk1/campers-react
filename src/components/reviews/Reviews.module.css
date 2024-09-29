@@ -1,0 +1,57 @@
+.reviewContainer {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+
+.ava {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+background: rgb(242, 244, 247);
+display: flex;
+justify-content: center;
+align-items: center;
+color: rgb(228, 72, 72);
+font-size: 24px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0%;
+}
+
+.userInfo {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.nameRateBox {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.starBox {
+    display: flex;
+    gap: 4px;
+}
+
+.description {
+color: rgb(71, 84, 103);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.iconStar {
+    color: rgb(255, 197, 49);
+}
+
+.iconStarNot {
+    color: rgb(242, 244, 247);
+}

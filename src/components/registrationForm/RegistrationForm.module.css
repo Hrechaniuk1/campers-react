@@ -1,0 +1,82 @@
+.form {
+    padding: 44px;
+border: 1px solid rgb(218, 221, 225);
+border-radius: 10px;
+}
+
+.title {
+color: rgb(16, 24, 40);
+font-size: 20px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+margin-bottom: 8px;
+}
+
+.description {
+color: rgb(108, 113, 123);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+margin-bottom: 24px;
+}
+
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.input {
+    width: 527px;
+    height: 60px;
+    padding: 18px;
+    border-radius: 12px;
+background: rgb(247, 247, 247);
+}
+
+.comment {
+    width: 527px;
+    height: 118px;
+    overflow: auto;
+    border-radius: 10px;
+background: rgb(247, 247, 247);
+padding: 18px;
+resize: none;
+}
+
+.input, .comment {
+color: rgb(108, 113, 123);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.btn {
+    width: 168px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px;
+background: rgb(228, 72, 72);
+margin-left: auto;
+margin-right: auto;
+color: rgb(255, 255, 255);
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.5%;
+transition: all 250ms ease-in-out;
+}
+
+.btn:hover {
+background-color: rgb(216, 67, 67);
+}
